@@ -10,14 +10,13 @@ re.c('isoimage')
         'action': function() {
             var that = this;
 
-            var npcs = re('npc')
-                .filter(function(npc) {
-                    if (npc.isoX() === that.isoX() &&
-                       npc.isoY() === that.isoY()) {
+            var npcs = re('npc').filter(function(npc) {
+                if (npc.isoX() === that.isoX() &&
+                    npc.isoY() === that.isoY()) {
 
-                        return true;
-                    }
-                });
+                    return true;
+                }
+            });
 
             if (npcs.length > 0) { return 2; }
 
