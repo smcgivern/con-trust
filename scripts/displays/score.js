@@ -12,7 +12,7 @@ re.c('score')
         this.text = re.e('text').attr({
             'font': '15px sans-serif',
             'screen': null,
-            'posX': 155,
+            'posX': 145,
             'posY': 5
         });
     });
