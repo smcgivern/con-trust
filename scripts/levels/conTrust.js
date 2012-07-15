@@ -41,13 +41,13 @@ re.c('conTrust')
         ],
         'stories': [
             'I\'ll give you €REWARD if you deliver this €RISK to my brother',
-            'This lottery ticket\'s worth €REWARD and you can buy it for €RISK',
+            'This lottery ticket won €REWARD but you can buy it for €RISK',
             'I\'m lost, give me €RISK and I\'ll send €REWARD when I get home',
             'The mountains are full of gold. €RISK will earn you €REWARD',
-            'The fix is in: put €RISK on number five for a guaranteed €REWARD!',
+            'The fix is in: put €RISK on number five for a sure €REWARD!',
             'These speakers will go for €REWARD, just €RISK for the lot',
-            'My father\'s ransom is €RISK; he\'ll pay €REWARD if you free him',
-            'I have €REWARD in coins but I can\'t change them - €RISK to you'
+            'My father\'s ransom is €RISK; he\'ll pay €REWARD if you help',
+            'I have €REWARD in coins that I can\'t change - €RISK to you'
         ],
         'chooseStory': function(risk, reward) {
             return this.stories[randBetween(0, this.stories.length - 1)]
