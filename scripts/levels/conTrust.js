@@ -136,6 +136,45 @@ re.c('conTrust')
 
             return this;
         },
+        'restartButton': function(text) {
+            re.e('rect').attr({
+                'color': '#a00',
+                'posY': 130,
+                'posX': -220,
+                'sizeX': 480,
+                'sizeY': 120
+            });
+
+
+            re.e('text').attr({
+                'text': text,
+                'font': '50px sans-serif',
+                'textColor': '#fff',
+                'posX': -200,
+                'posY': 165
+                });
+
+            return this;
+        },
+        'continueButton': function(text) {
+            re.e('rect').attr({
+                'color': '#0c0',
+                'posY': 130,
+                'posX': -220,
+                'sizeX': 480,
+                'sizeY': 120
+            });
+
+
+            re.e('text').attr({
+                'text': text,
+                'font': '50px sans-serif',
+                'posX': -200,
+                'posY': 165
+                });
+
+            return this;
+        },
         'setup': function(level) {
             if (typeof level === 'undefined') {
                 level = this.level;
@@ -156,8 +195,49 @@ re.c('conTrust')
         'action': function(type) {
             var character = this.characters[this.level];
 
+            re('draw').dispose();
+            re.faced[re.currentLevel.index] = true;
+            re.e('conTrust');
+
+            this.title(character.name);
+
             if (type === 'con') {
-                console.log('The con was discovered! You\'re out €' + character.risk);
+                if (randBetween(1, 5) <= character.savvy) {
+                    re.e('score').addMoney(re.score - character.reward);
+
+                    this.description('Never con a conster; you\'re out €'
+                                     + character.reward + '!');
+                } else {
+                    re.e('score').addMoney(re.score + character.risk);
+
+                    this.description('Always looked like an easy mark; €'
+                                     + character.risk + ' for you');
+                }
+            } else if (type === 'trust') {
+                if (randBetween(1, 5) <= character.honesty) {
+                    re.e('score').addMoney(re.score + character.reward);
+
+                    this.description('You have the €' + character.reward
+                                     + ', what a swell person');
+                } else {
+                    re.e('score').addMoney(re.score - character.risk);
+
+                    this.description('The damn swindler! That\'s €'
+                                     + character.risk + ' down the drain');
+                }
+            }
+
+            if (re.score < 0) {
+                this
+                    .story('Looks like you\'ve been cleaned out. Try again?')
+                    .restartButton('Restart');
+            } else if (re.faced[4]) {
+                this
+                    .story('You did it! €' + re.score + ' is all yours, '
+                           + 'care to try again?')
+                    .continueButton('Restart');
+            } else {
+                this.continueButton('Continue');
             }
         },
         'tryAction': function(x, y) {
