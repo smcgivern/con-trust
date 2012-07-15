@@ -202,7 +202,7 @@ re.c('conTrust')
             this.title(character.name);
 
             if (type === 'con') {
-                if (randBetween(1, 5) <= character.savvy) {
+                if (randBetween(1, 6) <= character.savvy) {
                     re.e('score').addMoney(re.score - character.reward);
 
                     this.description('Never con a conster; you\'re out €'
@@ -214,7 +214,7 @@ re.c('conTrust')
                                      + character.risk + ' for you');
                 }
             } else if (type === 'trust') {
-                if (randBetween(1, 5) <= character.honesty) {
+                if (randBetween(1, 6) <= character.honesty) {
                     re.e('score').addMoney(re.score + character.reward);
 
                     this.description('You have the €' + character.reward
