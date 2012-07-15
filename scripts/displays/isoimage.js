@@ -5,7 +5,7 @@ re.c('isoimage')
         'sizeY': 35,
         'layer': 0,
         'isoHeight': function() {
-            return (parseInt((this.frameX || 0) / 5) * 10);
+            return (parseInt((this.frameX || 0) / 5, 10) * 10);
         },
         'action': function() {
             var that = this;
