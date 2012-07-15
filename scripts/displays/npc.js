@@ -16,7 +16,7 @@ re.c('npc')
 
             this.attr({
                 'id': 'npc' + level,
-                'frame': 20 + level,
+                'frame': 30 + level,
                 'place': place,
                 'layer': re.layer.npc
             });

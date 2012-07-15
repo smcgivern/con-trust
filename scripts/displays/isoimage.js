@@ -18,7 +18,7 @@ re.c('isoimage')
                 }
             });
 
-            if (npcs.length > 0) { return 2; }
+            if (npcs.length > 0) { return 9; }
 
             return (this.frameY || 0);
         },

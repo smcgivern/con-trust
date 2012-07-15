@@ -29,7 +29,11 @@ re.c('cursor')
                     this.moveToScene('home', 1, [0, 0]);
                     break;
                 case 2:
-                    re.scene('faceOff').enter(re.currentLevel.index, score);
+                    this.moveToScene('home', -1, [0, 0]);
+                    break;
+                case 9:
+                    this.moveToScene('faceOff', 0, [iso.isoX, iso.isoY]);
+                    break;
                 default:
                     re('#player')[0].place(iso.isoX, iso.isoY);
                 }
