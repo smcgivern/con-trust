@@ -1,7 +1,7 @@
 re.scene('faceOff')
-    .enter(function(level, score) {
+    .enter(function() {
         re('draw').dispose();
-        re.e('score').addMoney(score);
-        re.e('conTrust').setup(level);
+        re.e('score').addMoney(re.score);
+        re.e('conTrust').setup(re.currentLevel.index);
         re.screen.pos(-220, 0);
     });

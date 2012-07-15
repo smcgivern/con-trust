@@ -23,7 +23,7 @@ re.c('level')
                 }
             }
 
-            re.e('npc').addToLevel(this.index);
+            if (!re.faced[this.index]) { re.e('npc').addToLevel(this.index); }
 
             this.cursor = re.e('cursor')
                 .attr('layer', re.layer.cursor);
@@ -33,7 +33,7 @@ re.c('level')
                     'id': 'player',
                     'frame': 99,
                     'layer': re.layer.player,
-                    'place': [0, 0]
+                    'place': re.place
                 });
 
         },

@@ -4,6 +4,7 @@ re.c('score')
     .defines({
         'addMoney': function(amount) {
             this.money += amount;
+            re.score = this.money;
             this.text.attr('text', 'Money: €' + this.money);
         }
     })

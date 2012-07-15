@@ -23,9 +23,9 @@ re.c('isoimage')
             return (this.frameY || 0);
         },
         'place': function(x, y) {
-            var height = re.currentLevel.tileHeight(x, y);
+            if (this.id === 'player') { re.place = [x, y]; }
 
-            this.iso(x, y, height / re.iso.sizeZ);
+            this.iso(x, y, re.currentLevel.tileHeight(x, y) / re.iso.sizeZ);
         },
         'depth': function() {
             return this.posY + this.layer + this.posZ;

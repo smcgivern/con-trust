@@ -15,20 +15,23 @@ re.c('cursor')
                 re.drawlist().sort();
             }
         },
+        'moveToScene': function(scene, offset, position) {
+            var player = re('#player')[0];
+
+            if (position) { player.place.apply(player, position); }
+
+            re.scene(scene).enter(offset);
+        },
         'moveTo': function(iso) {
             if (re.currentLevel.canMoveTo(iso)) {
-                var player = re('#player')[0];
-                var score = re('score')[0].money;
-
                 switch (re.currentLevel.action(iso)) {
                 case 1:
-                    re.scene('home').enter(re.currentLevel.index + 1, score);
-                    player.place(0, 0);
+                    this.moveToScene('home', 1, [0, 0]);
                     break;
                 case 2:
                     re.scene('faceOff').enter(re.currentLevel.index, score);
                 default:
-                    player.place(iso.isoX, iso.isoY);
+                    re('#player')[0].place(iso.isoX, iso.isoY);
                 }
 
                 re.drawlist().sort();

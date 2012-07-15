@@ -1,11 +1,10 @@
 re.scene('home')
-    .enter(function(level, score) {
-        level = level || 0;
-        score = score || 200;
+    .enter(function(offset) {
+        offset = offset || 0;
+        re.currentLevel = re('level')[re.currentLevel.index + offset];
 
         re('draw').dispose();
-        re.e('score').addMoney(score);
-        re.currentLevel = re('level')[level];
+        re.e('score').addMoney(re.score);
         re.currentLevel.setup();
         re.screen.pos(-220, 0);
     });
