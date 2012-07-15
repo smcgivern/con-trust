@@ -161,6 +161,12 @@ re.c('conTrust')
             }
         },
         'tryAction': function(x, y) {
+            if (re.score < 0 || re.faced[4]) {
+                return re.scene('load').enter();
+            } else if (re.faced[re.currentLevel.index]) {
+                return re.scene('home').enter();
+            }
+
             if (y >= 130 && y <= 250) {
                 if (x >= -220 && x <= 10) {
                     this.action('con');
