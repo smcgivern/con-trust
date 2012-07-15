@@ -6,27 +6,27 @@ re.c('conTrust')
             {
                 'name': 'Honest John',
                 'honesty': 5,
-                'savvy': 1,
+                'savvy': randBetween(1, 5),
                 'risk': randBetween(50, 100),
                 'reward': randBetween(50, 100)
             },
             {
                 'name': 'Steady Eddie',
-                'honesty': 4,
-                'savvy': 2,
+                'honesty': randBetween(3, 5),
+                'savvy': randBetween(1, 3),
                 'risk': randBetween(50, 100),
                 'reward': randBetween(50, 100)
             },
             {
-                'name': 'Regular Joe',
-                'honesty': 3,
-                'savvy': 3,
+                'name': 'Wobbly Robby',
+                'honesty': randBetween(1, 5),
+                'savvy': randBetween(1, 5),
                 'risk': randBetween(100, 200),
                 'reward': randBetween(100, 200)
             },
             {
                 'name': 'Diamond Geezer',
-                'honesty': 2,
+                'honesty': randBetween(1, 3),
                 'savvy': 4,
                 'risk': randBetween(200, 300),
                 'reward': randBetween(200, 300)
@@ -34,7 +34,7 @@ re.c('conTrust')
             {
                 'name': 'Tricky Dicky',
                 'honesty': 1,
-                'savvy': 5,
+                'savvy': randBetween(3, 5),
                 'risk': randBetween(300, 500),
                 'reward': randBetween(300, 500)
             }
